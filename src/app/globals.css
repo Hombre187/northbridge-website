@@ -27,9 +27,12 @@ a, button { outline-offset: 4px; }
 .grid-lines { background-image: linear-gradient(#fff0 95%, #fff06 100%), linear-gradient(90deg, #fff0 95%, #fff06 100%); background-size: 64px 64px; }
 .section-space { padding-block: var(--section-space); }
 .hairline { border-color: rgb(255 255 255 / .08); }
-.hero-vignette { background: linear-gradient(90deg,#080808 2%,#080808d9 46%,#0808085c), linear-gradient(0deg,#080808 0%,transparent 55%), radial-gradient(circle at 70% 40%,transparent 20%,#08080888 100%); }
+.hero-vignette { background: linear-gradient(0deg,#080808 0%,transparent 48%), radial-gradient(circle at center,transparent 5%,#08080899 100%), #00000045; }
+.hero-frame { opacity: 0; transform: scale(1); transition: opacity 1.6s ease; }
+.hero-frame-active { opacity: 1; z-index: 1; animation: heroZoom 10s ease-out both; }
+@keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.045); } }
 @keyframes scrollCue { 0%, 100% { transform: translateY(0); opacity: .35; } 50% { transform: translateY(7px); opacity: 1; } }
 .scroll-cue { animation: scrollCue 1.8s ease-in-out infinite; }
 @keyframes reveal { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 .reveal { animation: reveal .7s ease both; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } .hero-frame:not(:first-child) { display: none; } .hero-frame:first-child { opacity: 1; } }
