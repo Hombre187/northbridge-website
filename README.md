@@ -30,7 +30,7 @@ To run the production build locally, use `npm start` after `npm run build`.
 
 ## Content you should edit
 
-- **Discord, Store, support, connect link, join code, and player maximum:** edit `src/config/site.ts`. All current external URLs are safe placeholders and must be replaced.
+- **Discord, Store, support, connect link, join code, and player maximum:** edit `src/config/site.ts`. The production IP and 128-player maximum are filled in; Discord and Tebex remain safe placeholders until their public URLs are provided.
 - **Businesses, departments, features, and staff:** edit `src/data/content.ts`. Staff names marked as placeholders are intentionally not real people.
 - **Server status:** `src/lib/server-status.ts` contains a build-safe offline fallback. Later, replace it with a server-only request to a FiveM status service. Keep server credentials out of client code and environment variables.
 - **Brand colors:** edit the custom variables and utility styles near the top of `src/app/globals.css`. The main accent is `#d11b2d`.
