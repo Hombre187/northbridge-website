@@ -18,8 +18,8 @@ export const updates = [
 ] as const;
 
 export const businesses: Business[] = [
-  { name: "Redline Performance", category: "Automotive", description: "Performance tuning, repairs, and a culture built for the city’s most dedicated drivers.", location: "Location to be announced", status: "Hiring", image: "/images/businesses/redline.svg" },
-  { name: "Up-n-Atom", category: "Food & Hospitality", description: "Fast food, late-night meetups, and one of NorthBridge’s social landmarks.", location: "Location to be announced", status: "Open", image: "/images/businesses/upnatom.svg" },
+  { name: "Redline Performance", category: "Automotive", description: "Performance tuning, repairs, and a culture built for the city’s most dedicated drivers.", location: "Location to be announced", status: "Hiring", image: "/images/northbridge/redline_interior.webp" },
+  { name: "Up-n-Atom", category: "Food & Hospitality", description: "Fast food, late-night meetups, and one of NorthBridge’s social landmarks.", location: "Location to be announced", status: "Open", image: "/images/northbridge/upnatom_exterior.webp" },
   { name: "DigiDen", category: "Technology", description: "Consumer tech, device support, and digital services for connected citizens.", location: "Location to be announced", status: "Hiring", image: "/images/businesses/digiden.svg" },
   { name: "Ammu-Nation", category: "Retail", description: "Licensed equipment sales delivered through careful, regulation-focused roleplay.", location: "Location to be announced", status: "Opening soon", image: "/images/businesses/ammu.svg" },
 ];
