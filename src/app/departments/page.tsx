@@ -1,0 +1,3 @@
+import type { Metadata } from "next"; import { DepartmentCard } from "@/components/cards"; import { Container, PageHero } from "@/components/ui"; import { departments } from "@/data/content";
+export const metadata: Metadata={title:"Departments",description:"Explore public service and mechanic careers in NorthBridge RP."};
+export default function Departments(){return <><PageHero eyebrow="Careers" title="Answer the call." copy="Join a team that creates high-stakes, collaborative roleplay across the city."/><section className="py-20"><Container><div className="grid gap-6 md:grid-cols-2">{departments.map(d=><DepartmentCard key={d.short} department={d}/>)}</div></Container></section></>}

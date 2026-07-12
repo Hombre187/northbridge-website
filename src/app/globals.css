@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+:root { --red: #d11b2d; --ink: #070708; --panel: #111114; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--ink); color: #f5f5f5; font-family: Arial, Helvetica, sans-serif; }
+body::before { content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .35; background: radial-gradient(circle at 75% 5%, #9d102a22, transparent 34%), radial-gradient(circle at 15% 60%, #62101b18, transparent 30%); z-index: -1; }
+a, button { outline-offset: 4px; }
+:focus-visible { outline: 2px solid #ef5260; }
+.glass { background: linear-gradient(145deg, #19191dcc, #0d0d10dd); border: 1px solid #ffffff12; backdrop-filter: blur(16px); box-shadow: 0 20px 70px #0008; }
+.red-glow { box-shadow: 0 0 40px #d11b2d25; }
+.eyebrow { color: #ef5260; font-size: .75rem; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; }
+.text-gradient { background: linear-gradient(115deg, #fff 25%, #bbb 65%, #ef5260); background-clip: text; color: transparent; }
+.grid-lines { background-image: linear-gradient(#fff0 95%, #fff06 100%), linear-gradient(90deg, #fff0 95%, #fff06 100%); background-size: 64px 64px; }
+@keyframes reveal { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.reveal { animation: reveal .7s ease both; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
