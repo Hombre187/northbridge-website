@@ -15,5 +15,5 @@ export const siteConfig = {
 
 export const navigation = [
   ["Home", "/"], ["About", "/about"], ["Rules", "/rules"], ["Departments", "/departments"],
-  ["Businesses", "/businesses"], ["Gallery", "/gallery"], ["Join", "/join"],
+  ["Businesses", "/businesses"], ["Gallery", "/gallery"], ["Join", "/join"], ["Contact", "/contact"],
 ] as const;

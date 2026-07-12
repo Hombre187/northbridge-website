@@ -31,9 +31,10 @@ To run the production build locally, use `npm start` after `npm run build`.
 ## Content you should edit
 
 - **Discord, Store, support, connect link, join code, and player maximum:** edit `src/config/site.ts`. The production IP and 128-player maximum are filled in; Discord and Tebex remain safe placeholders until their public URLs are provided.
-- **Businesses, departments, features, and staff:** edit `src/data/content.ts`. Staff names marked as placeholders are intentionally not real people.
+- **Businesses, departments, features, and updates:** edit `src/data/content.ts`.
+- **Staff:** edit `src/data/staff.json`. Entries marked as placeholders are intentionally not real people.
 - **Server status:** `src/lib/server-status.ts` contains a build-safe offline fallback. Later, replace it with a server-only request to a FiveM status service. Keep server credentials out of client code and environment variables.
-- **Brand colors:** edit the custom variables and utility styles near the top of `src/app/globals.css`. The main accent is `#d11b2d`.
+- **Design system:** edit the documented tokens near the top of `src/app/globals.css`. Colors, surfaces, radii, shadows, and section spacing are centralized there. Reusable component variants live in `src/components/ui.tsx`.
 - **Page copy:** each page is in `src/app/<page>/page.tsx`.
 
 ## Replace images and branding
@@ -47,6 +48,15 @@ All current art is original local SVG placeholder artwork; the site does not hot
 - Temporary NB mark and favicon: `public/branding/nb-mark.svg`
 
 You can replace an SVG with a `.webp` or `.avif`, then update the matching path in `src/data/content.ts` or the page component. Keep descriptive alt text. Recommended hero size is at least 1920×1080; card images should use a consistent 16:9 ratio.
+
+### Add the cinematic hero video
+
+Place either or both of these files in `public/videos/`:
+
+- `northbridge-hero.webm` (preferred for efficient delivery)
+- `northbridge-hero.mp4` (compatibility fallback)
+
+The hero detects available files during the build. If neither exists, it automatically uses `public/images/hero/city.svg`. Video is muted, looping, inline, and hidden for visitors who prefer reduced motion. Keep the video short, silent, dark enough for readable text, and compressed for web delivery.
 
 ## Deploy to Vercel
 
@@ -72,7 +82,8 @@ src/
   app/               Pages, metadata, sitemap, robots, and global styles
   components/        Navigation, footer, cards, status, and shared UI
   config/site.ts     External URLs and site-wide settings
-  data/content.ts    Editable businesses, departments, staff, and features
+  data/content.ts    Editable businesses, departments, features, and updates
+  data/staff.json    Editable staff groups and members
   lib/                Server-status fallback
 ```
 

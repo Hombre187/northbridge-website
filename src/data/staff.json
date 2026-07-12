@@ -1,0 +1,7 @@
+[
+  { "group": "Owners", "members": [{ "name": "Hombre187", "role": "Owner — initial entry" }, { "name": "Mercs", "role": "Co-Owner — initial entry" }] },
+  { "group": "Management", "members": [{ "name": "Position Open", "role": "Placeholder entry" }] },
+  { "group": "Administrators", "members": [{ "name": "Position Open", "role": "Placeholder entry" }] },
+  { "group": "Developers", "members": [{ "name": "Position Open", "role": "Placeholder entry" }] },
+  { "group": "Moderators", "members": [{ "name": "Position Open", "role": "Placeholder entry" }] }
+]
