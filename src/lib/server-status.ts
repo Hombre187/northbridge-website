@@ -1,6 +1,25 @@
 import { siteConfig } from "@/config/site";
-export type ServerStatus = { online: boolean; players: number; maxPlayers: number; queue: number; restart: string; version: string; discordMembers: number | null; updatedAt: string };
-// Replace this fallback with a server-only API fetch later; the site never depends on a live endpoint.
+
+export type ServerStatus = {
+  online: boolean;
+  hostname: string;
+  players: number;
+  maxPlayers: number;
+  version: "Season One";
+  queue: number | null;
+  nextRestart: string | null;
+  lastUpdated: string;
+};
+
 export function getFallbackServerStatus(): ServerStatus {
-  return { online: false, players: 0, maxPlayers: siteConfig.maxPlayers, queue: 0, restart: "Schedule pending", version: "Season One", discordMembers: null, updatedAt: "Live API pending" };
+  return {
+    online: false,
+    hostname: "NorthBridge RP",
+    players: 0,
+    maxPlayers: siteConfig.maxPlayers,
+    version: "Season One",
+    queue: null,
+    nextRestart: null,
+    lastUpdated: "",
+  };
 }
