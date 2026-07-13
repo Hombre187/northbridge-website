@@ -14,6 +14,7 @@ Open a terminal in this project folder and run:
 
 ```bash
 npm install
+copy .env.example .env.local
 npm run dev
 ```
 
@@ -33,7 +34,7 @@ To run the production build locally, use `npm start` after `npm run build`.
 - **Discord, Store, support, connect link, join code, and player maximum:** edit `src/config/site.ts`. The current public Discord, Tebex, server endpoint, and 128-player maximum are configured there.
 - **Businesses, departments, features, and updates:** edit `src/data/content.ts`.
 - **Staff:** edit `src/data/staff.json`. Entries marked as placeholders are intentionally not real people.
-- **Server status:** `src/lib/server-status.ts` contains a build-safe offline fallback. Later, replace it with a server-only request to a FiveM status service. Keep server credentials out of client code and environment variables.
+- **Server status:** `src/app/api/server-status/route.ts` reads the public FiveM status endpoints server-side and returns only normalized availability data. `src/lib/server-status.ts` contains the build-safe offline shape.
 - **Design system:** edit the documented tokens near the top of `src/app/globals.css`. Colors, surfaces, radii, shadows, and section spacing are centralized there. Reusable component variants live in `src/components/ui.tsx`.
 - **Page copy:** each page is in `src/app/<page>/page.tsx`.
 
@@ -64,7 +65,8 @@ The hero detects available files during the build. If neither exists, it automat
 2. Sign in at [vercel.com](https://vercel.com) and choose **Add New → Project**.
 3. Import `Hombre187/northbridge-website`.
 4. Leave **Framework Preset** as Next.js, **Root Directory** as `./`, and the build settings at their detected defaults.
-5. Select **Deploy**. No environment variables are required for this version.
+5. In **Settings → Environment Variables**, add `FIVEM_SERVER_ENDPOINT=205.209.113.90:30120` for Production, Preview, and Development. This is a public endpoint, not a secret, and remains server-side because it does not use the `NEXT_PUBLIC_` prefix.
+6. Select **Deploy**.
 
 ### Connect northbridgerp.com
 
@@ -87,6 +89,10 @@ src/
   lib/                Server-status fallback
 ```
 
-## Future live server status
+## Live server status
 
-Keep the existing `ServerStatus` interface and replace `getFallbackServerStatus()` with a cached server-side fetch. Do not call a protected game server endpoint from a client component. Store any private API token in a Vercel environment variable, never in `site.ts`, and preserve the offline fallback so a server outage cannot break the website build or page.
+The homepage requests `/api/server-status`, which calls the server's public `dynamic.json` and `info.json` endpoints from a Node.js route handler. The browser never calls FiveM directly. The route has a 4.5-second timeout, disables caching, validates the upstream values, and returns a safe offline response when the server is unavailable.
+
+Configure the host and game port locally by copying `.env.example` to `.env.local`. On Vercel, add the same `FIVEM_SERVER_ENDPOINT` value under **Project → Settings → Environment Variables** and scope it to Production, Preview, and Development. If omitted, the route uses the documented NorthBridge endpoint as a fallback.
+
+Only current players, maximum players, and the public hostname are normalized. Queue size, restart scheduling, Discord member counts, player names, identifiers, resources, txAdmin data, and private credentials are never requested or exposed.
