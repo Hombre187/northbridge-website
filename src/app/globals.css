@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --color-canvas: #080808;
-  --color-surface: #111111;
-  --color-elevated: #171717;
+  --color-canvas: #0b0b0d;
+  --color-surface: #141416;
+  --color-elevated: #1b1b1e;
   --color-accent: #b51224;
   --color-accent-bright: #e02b3f;
   --color-text: #f7f7f7;
@@ -20,22 +20,22 @@ body { margin: 0; overflow-x: clip; background: var(--color-canvas); color: var(
 body::before { content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .35; background: radial-gradient(circle at 75% 5%, #9d102a22, transparent 34%), radial-gradient(circle at 15% 60%, #62101b18, transparent 30%); z-index: -1; }
 a, button { outline-offset: 4px; }
 :focus-visible { outline: 2px solid #ef5260; }
-.glass { background: linear-gradient(145deg, rgb(23 23 23 / .9), rgb(13 13 13 / .94)); border: 1px solid #ffffff12; backdrop-filter: blur(16px); box-shadow: var(--shadow-card); }
+.glass { background: linear-gradient(145deg, rgb(28 28 31 / .9), rgb(16 16 19 / .94)); border: 1px solid #ffffff16; backdrop-filter: blur(16px); box-shadow: var(--shadow-card); }
 .red-glow { box-shadow: var(--shadow-glow); }
 .eyebrow { color: #ef5260; font-size: .75rem; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; }
 .text-gradient { background: linear-gradient(115deg, #fff 25%, #bbb 65%, #ef5260); background-clip: text; color: transparent; }
 .grid-lines { background-image: linear-gradient(#fff0 95%, #fff06 100%), linear-gradient(90deg, #fff0 95%, #fff06 100%); background-size: 64px 64px; }
 .section-space { padding-block: var(--section-space); }
 .hairline { border-color: rgb(255 255 255 / .08); }
-.hero-vignette { background: linear-gradient(0deg,#080808 0%,transparent 46%), linear-gradient(90deg,#040406a8 0%,transparent 32%,transparent 68%,#0404068f 100%), radial-gradient(circle at 50% 44%,transparent 3%,#07070a9e 100%), #0000004d; }
-.hero-beam { background: radial-gradient(ellipse 42% 34% at 50% 47%, rgb(166 25 47 / .11), transparent 72%); mix-blend-mode: screen; }
+.hero-vignette { background: linear-gradient(0deg,#0b0b0df2 0%,#0b0b0d8c 13%,transparent 43%), linear-gradient(90deg,#04040673 0%,transparent 29%,transparent 71%,#0404065c 100%), radial-gradient(circle at 50% 44%,transparent 12%,#07070a6b 100%), #0000001f; }
+.hero-beam { background: radial-gradient(ellipse 44% 36% at 50% 47%, rgb(166 25 47 / .14), transparent 72%); mix-blend-mode: screen; }
 .hero-title { text-shadow: 0 12px 45px rgb(0 0 0 / .68); }
 .hero-kicker { display: flex; align-items: center; gap: .65rem; border: 1px solid rgb(255 255 255 / .1); border-radius: 999px; background: rgb(8 8 10 / .52); padding: .55rem .85rem; color: #d4d4d8; font-size: .625rem; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; backdrop-filter: blur(10px); }
 @media (max-width: 419px) { .hero-kicker { gap: .45rem; padding-inline: .7rem; font-size: .5rem; letter-spacing: .12em; } }
 .nav-shell { border: 1px solid rgb(255 255 255 / .08); background: linear-gradient(180deg, rgb(13 13 16 / .68), rgb(8 8 10 / .55)); box-shadow: 0 14px 50px rgb(0 0 0 / .18); backdrop-filter: blur(12px); }
 .nav-shell-solid { border-color: rgb(255 255 255 / .11); background: rgb(8 8 11 / .9); box-shadow: 0 18px 55px rgb(0 0 0 / .42); backdrop-filter: blur(22px); }
-.status-dock { border-color: rgb(255 255 255 / .11); background: linear-gradient(135deg, rgb(18 18 21 / .96), rgb(10 10 12 / .97)); box-shadow: 0 25px 80px rgb(0 0 0 / .5), 0 0 50px rgb(181 18 36 / .1); }
-.hero-frame { opacity: 0; transform: scale(1); transition: opacity 1.6s ease; }
+.status-dock { border-color: rgb(255 255 255 / .13); background: linear-gradient(135deg, rgb(24 24 27 / .96), rgb(14 14 17 / .97)); box-shadow: 0 25px 80px rgb(0 0 0 / .44), 0 0 50px rgb(181 18 36 / .11); }
+.hero-frame { opacity: 0; filter: brightness(1.13) saturate(1.08); transform: scale(1); transition: opacity 1.6s ease; }
 .hero-frame-active { opacity: 1; z-index: 1; animation: heroZoom 10s ease-out both; }
 @keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.045); } }
 @keyframes scrollCue { 0%, 100% { transform: translateY(0); opacity: .35; } 50% { transform: translateY(7px); opacity: 1; } }
